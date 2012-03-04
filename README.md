@@ -29,19 +29,19 @@ This lib includes a simple data structure User:
     	'port' 		: 5222
 	});
 
-	cl.addListener('message', function( user, message ) {
+	cl.on('message', function( user, message ) {
     	console.log('Received message: ' + message + ' from ' + user.name() );
 	});
 
-	cl.addListener('status', function( user ) {
+	cl.on('status', function( user ) {
     	console.log('Received statuschange ' + user.status() + ' from: ' + user.name());
 	});
     
-	cl.addListener('userOnline', function( user ) {
+	cl.on('userOnline', function( user ) {
     	console.log(user.name() + ' is online! :)');
 	});
 
-	cl.addListener('userOffline', function( user ) {
+	cl.on('userOffline', function( user ) {
     	console.log(user.name() + ' went offline! :(');
 	});
 

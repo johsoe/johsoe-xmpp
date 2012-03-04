@@ -14,11 +14,11 @@ function Client( options ) {
 
 	events.EventEmitter.call(this);	
 	
-	self.cl.addListener('stanza', function( stanza ) {
+	self.cl.on('stanza', function( stanza ) {
 		self.stanzaListener( stanza );
 	});	
 
-	self.cl.addListener('online', function() {
+	self.cl.on('online', function() {
 		self.requestRoster();
 
 		self.emit('online');
@@ -101,6 +101,7 @@ Client.prototype.stanzaMessage = function( stanza ) {
 	
 	if( self.options.debug )
 		console.log('stanzaMessage() -> ', stanza.children[0].children);
+
 };
 
 Client.prototype.stanzaIq = function( stanza ) {

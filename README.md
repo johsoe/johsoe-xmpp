@@ -49,7 +49,7 @@ This lib includes a simple data structure User:
 
 #### Methods
 
-Finding users in the roster
+Finding users in the roster:
 
 
 	var user = cl.findUserByName( 'Preben' );
@@ -65,3 +65,6 @@ Looping over online users in the roster:
 		console.log( user.name() + 'is online!' );
 	});
 
+Sending messages to a user:
+
+	cl.sendMessage( user, 'YOU WON THE LOTTERY!!' );

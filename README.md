@@ -2,7 +2,7 @@ Middleware layer for the node-xmpp library. For the time being there's simple su
 
 This lib includes a simple data structure User:
 
-´
+`
 function User( jid, name ) {
 	this._jid = jid || '';
 	this._name = name || '';
@@ -16,11 +16,12 @@ function User( jid, name ) {
 	...
 */
 
-´
+`
 
 
 #### Events
 
+`
 var cl = new Client({ 
 	'jid' 		: 'lol@lol.dk/lol',
    	'password' 	: 'fisogballade',
@@ -44,21 +45,23 @@ cl.addListener('userOffline', function( user ) {
     console.log(user.name() + ' went offline! :(');
 });
 
+`
+
 #### Methods
 
 Finding users in the roster
 
-´
+`
 var user = cl.findUserByName( 'Preben' );
 var user = cl.findUserByJID( 'Preben@xmpp.example.com' );
 
 console.log('Prebens status is ' + user.status());
-´
+`
 
 Looping over online users in the roster:
 
-´
+`
 cl.forEachUser(function( user ) {
 	console.log( user.name() + 'is online!' );
 });
-´
+`

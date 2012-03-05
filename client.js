@@ -137,16 +137,13 @@ Client.prototype.stanzaPresence = function( stanza ) {
 
 	if( status ) {
 		user.status( status );
-		user.online();
 		this.emit('status', user);
-	} else if( user.status().length > 0 )  {
+	} else {
 		user.status( '' );
 		this.emit('status', user);
-		user.online();
-	} else if( user.status().length == 0 ) {
-		user.online();
-	}
+	} 
 
+	user.online();
 	this.emit('userOnline', user);
 };
 

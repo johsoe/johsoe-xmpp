@@ -172,7 +172,7 @@ Client.prototype.parseRosterResult = function( stanza ) {
 
 Client.prototype.findUserByName = function( name ) {
 	for( var i in this.roster ) {
-		if( this.roster[i].name() === name ) {
+		if( this.roster[i].name().toLowerCase() === name.toLowerCase() ) {
 			return this.roster[i];
 		}
 			
@@ -183,7 +183,7 @@ Client.prototype.findUserByName = function( name ) {
 
 Client.prototype.findUserByJID = function( jid ) {
 	for( var i in this.roster ) {
-		if( this.roster[i].jid() === jid ) {
+		if( this.roster[i].jid().toLowerCase() === jid.toLowerCase() ) {
 			return this.roster[i];
 		}
 			

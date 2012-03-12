@@ -8,6 +8,8 @@ function Client( options ) {
 
 	self.options = options || {};
 
+	self.options.keepaliveinternal = options.keepaliveinternal || 60 * 1000;
+
 	self.roster = [];
 
 	self.cl 	= new xmpp.Client( options );
@@ -22,6 +24,11 @@ function Client( options ) {
 		self.requestRoster();
 
 		self.emit('online');
+
+		// Keep alive
+		setInterval(function () {
+			self.cl.send( new xmpp.Element( 'presence' ) );
+		}, self.options.keepaliveinternal );
 	});
 };
 

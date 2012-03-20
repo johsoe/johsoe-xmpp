@@ -30,6 +30,14 @@ function Client( options ) {
 			self.cl.send( new xmpp.Element( 'presence' ) );
 		}, self.options.keepaliveinternal );
 	});
+
+	self.cl.on('offline', function(){
+		self.emit('offline');
+	});
+
+	self.cl.on('error', function( message ) {
+		util.log( util.format( 'Unhandled XMPP error --> %s', message) );
+	});
 };
 
 util.inherits(Client, events.EventEmitter);
